@@ -1,0 +1,9 @@
+.main-competitions {
+    display: flex;
+    justify-content: center;
+}
+
+.main-competitions__wrapper {
+    width: 960px;
+    padding: 0 60px;
+}

@@ -1,0 +1,9 @@
+.main-team-calendar {
+    display: flex;
+    justify-content: center;
+}
+
+.main-team-calendar__wrapper {
+    width: 960px;
+    padding: 0 60px;
+}

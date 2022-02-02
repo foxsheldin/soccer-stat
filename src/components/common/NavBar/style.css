@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: center;
+    min-height: 50px;
+    width: auto;
+    
+    background-color: black;
+    color: white;
+}
+
+.header__wrapper {
+    display: flex;
+    max-width: 960px;
+    padding: 0 60px;
+}
+
+.header__logo {
+    color: burlywood;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 30px;
+}
+ 
+.header__navbar {
+
+}
+
+.navbar-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.navbar-list__item{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 30px;
+}
+
+.navbar-list__item:hover,
+.navbar-list__item_active{
+    background-color: white;
+    color: black;
+}
+
