@@ -25,7 +25,8 @@ const MathcesItem = (props) => {
 
     switch (matchStatus) {
         case 'IN_PLAY':
-            matchStatus = 'В игре'
+            matchStatus = 'В игре';
+            break;
         case 'FINISHED':
             matchStatus = "Завершен";
             break;
