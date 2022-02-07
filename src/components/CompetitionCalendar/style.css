@@ -4,6 +4,16 @@
 }
 
 .main-competition-calendar__wrapper {
+    display: flex;
+    flex-wrap: wrap;
     width: 960px;
     padding: 0 60px;
+}
+
+.team-list {
+    display: flex;
+}
+
+.team-list-item {
+    display: flex;
 }
