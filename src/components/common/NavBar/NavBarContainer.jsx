@@ -5,11 +5,11 @@ import NavBar from './NavBar';
 const NavBarContainer = React.memo(() => {
     const location = useLocation();
     const navigate = useNavigate();
-    debugger
+    
     if (location.pathname === '/') {
         navigate("/competitions");
     }
-    return <NavBar pathname={location.pathname}/>;
+    return <NavBar />;
 });
 
 export default NavBarContainer;
