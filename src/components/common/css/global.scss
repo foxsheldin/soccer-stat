@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.main-wrapper {
+    width: 90%;
+    margin: 0 auto;
+
+    @media (min-width: $tablet-width) {
+        width: $tablet-width;
+    }
+
+    @media (min-width: $desktop-width) {
+        width: $desktop-width;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
