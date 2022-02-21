@@ -31,7 +31,8 @@ const setTeams = (teams, count) => ({type: SET_TEAMS, teams, count})
 const setOneTeam = (team) => ({type: SET_ONE_TEAM, team})
 const setMatches = (matches, count) => ({type: SET_MATCHES, matches, count})
 
-export const getTeams = (competitionCode) => {
+
+export const getTeams = (competitionCode=null) => {
     return async (dispatch) => {
         dispatch(setTeams([], null));
         const response = await footballDataAPI.getTeams(competitionCode);
