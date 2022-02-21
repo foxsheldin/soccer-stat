@@ -8,12 +8,10 @@ const MathcesItem = (props) => {
     if (props.score.extraTime.homeTeam !== null && props.score.extraTime.awayTeam !== null) {
         awayTeamScore = props.score.extraTime.awayTeam;
         homeTeamScore = props.score.extraTime.homeTeam;
-    }
-    if (props.score.fullTime.homeTeam !== null && props.score.fullTime.awayTeam !== null) {
+    } else if (props.score.fullTime.homeTeam !== null && props.score.fullTime.awayTeam !== null) {
         awayTeamScore = props.score.fullTime.awayTeam;
         homeTeamScore = props.score.fullTime.homeTeam;
-    }
-    if (props.score.halfTime.homeTeam !== null && props.score.halfTime.awayTeam !== null) {
+    } else if (props.score.halfTime.homeTeam !== null && props.score.halfTime.awayTeam !== null) {
         awayTeamScore = props.score.halfTime.awayTeam;
         homeTeamScore = props.score.halfTime.homeTeam;
     }
@@ -40,18 +38,20 @@ const MathcesItem = (props) => {
         default:
             matchStatus = "N/A status: "+props.status;
     }
-
+    debugger
     return (
         <tr>
-            <td> {date.toLocaleDateString()+" "+date.toLocaleTimeString()} </td>
-            <td>{props.homeTeam.name} : {props.awayTeam.name}</td>
-            <td>{(homeTeamScore !== null && awayTeamScore !== null) ?
-                <>{homeTeamScore} : {awayTeamScore}</>
-                :null}</td>
-            <td>{(homeTeamPenalty !== null && awayTeamPenalty !== null) ?
-                <>{homeTeamScore} : {awayTeamScore}</>
-                :null}</td>
+            <td> {date.toLocaleDateString()}</td>
+            <td> {date.toLocaleTimeString()}</td>
             <td>{matchStatus}</td>
+            <td>{props.homeTeam.name}</td>
+            <td>-</td>
+            <td>{props.awayTeam.name}</td>
+            <td>{(homeTeamScore!==null && awayTeamScore!==null) ?
+                <>{homeTeamScore} : {awayTeamScore} 
+                    {(homeTeamPenalty!==null && awayTeamPenalty!==null) ?<> ({homeTeamPenalty} : {awayTeamPenalty}) </> : null}</>
+                : null}
+                </td>
         </tr>
     );
 }
