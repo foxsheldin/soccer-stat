@@ -1,12 +1,8 @@
 import React from 'react';
 import PreLoader from "../common/PreLoader/PreLoader";
-import MathcesItem from "../common/MatchesItem/MatchesItem";
+import TableForMatches from '../common/TableForMatches/TableForMatches';
 
 const TeamCalendar = (props) => {
-  const matchesElements = (matches) => {
-    return matches.map((each) => <MathcesItem {...each} />)
-  }
-
   return <main className='main-team-calendar'>
   <div className='main-team-calendar__wrapper'>
     <div className='about-team'>
@@ -24,24 +20,8 @@ const TeamCalendar = (props) => {
     <div className='calendar-team'>
       <p>Календарь команды</p>
       {props.countMatches !== null ?
-          props.countMatches ? <table>
-                <thead>
-                <tr>
-                  <th>Дата игры</th>
-                  <th>Команды</th>
-                  <th>Счет</th>
-                  <th>Пенальти</th>
-                  <th>Cтатус игры</th>
-                </tr>
-                </thead>
-                <tbody>
-                {matchesElements(props.matches)}
-                </tbody>
-              </table>
-
-              : 'Нет существующих игр'
-
-          : <PreLoader />}
+          props.countMatches ? <TableForMatches {...props} /> : 'Нет существующих игр'
+        : <PreLoader />}
     </div>
   </div>
 </main>;
