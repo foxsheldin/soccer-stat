@@ -1,51 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PreLoader from '../common/PreLoader/PreLoader';
-import './style.css';
+import './style.scss';
 
 const CompetitionsItem = (props) => {
-  const addCodeLink = props.code??props.id
-  const startDate = props.currentSeason !== null ? props.currentSeason.startDate : 'N/A';
-  const endDate = props.currentSeason !== null ? props.currentSeason.endDate : 'N/A';
-  return (
-    <tr>
-      <td><Link to={'/competitions/'+addCodeLink+'/teams'}>{props.name}</Link></td>
-      <td><Link to={'/competitions/'+addCodeLink+'/teams'}>{startDate}</Link></td>
-      <td><Link to={'/competitions/'+addCodeLink+'/teams'}>{endDate}</Link></td>
-    </tr>
-  );
+  const addCodeLink = props.code??props.id;
+
+  return <Link to={`/competitions/${addCodeLink}`}>
+    <div className='competitions-list__item'>
+      <div className='competitions__name'>{props.name}</div>
+      <div className='competitions__country'>
+        {props.area.ensignUrl || props.emblemUrl ?
+          <img src={props.area.ensignUrl ?? props.emblemUrl} className='competitions__flag' width='20' height='14' />
+        : null}
+        <span>{props.area.name}</span>
+      </div>
+    </div>
+  </Link>
+}
+
+const competitionsElements = (competitions) => {
+  return competitions.map((each) => <CompetitionsItem {...each} />)
 }
 
 const Competitions = (props) => {
-  const competitionsElements = (competitions) => {
-    return competitions.map((each) => <CompetitionsItem {...each} />)
-  }
-  
+
   return <main className='main-competitions'>
-    <div className='main-competitions__wrapper'>
-      <h3>Лиги</h3>
-      {props.count !== null ?
-          <table className='main-competitions__table'>
-            <thead>
-              <tr>
-                <th rowSpan={2}>Наименование лиги/соревнования</th>
-                <th colSpan={2}>Период сезона</th>
-              </tr>
-              <tr>
-                <th>Начало</th>
-                <th>Конец</th>
-              </tr>
-            </thead>
-            <tbody>
-              {competitionsElements(props.competitions)}
-            </tbody>
-          </table>
-
+    <div className='main-wrapper'>
+      <h1 className='visually-hidden'>Лиги</h1>
+      {props.count !== null ? 
+        <div className='competitions-list'>
+          {competitionsElements(props.competitions)}
+        </div>
       : <PreLoader />}
-
     </div>
   </main>;
 };
 
-/* : <span style={{color: 'red'}}>Неудалось получить данные с сервера. Попробуйте позже</span>} */
 export default Competitions;
