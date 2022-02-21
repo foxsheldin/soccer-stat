@@ -19,7 +19,10 @@ export const footballDataAPI = {
     },
     getTeams(competitionCode) {
         /* List all teams for a particular competition. */
-        return instance.get(`competitions/${competitionCode}/teams`);
+        if (competitionCode)
+            return instance.get(`competitions/${competitionCode}/teams`);
+        else 
+            return instance.get(`teams`)
     },
     getOneTeam(teamid) {
         /* Show one particular team. */
