@@ -1,9 +1,0 @@
-.main-teams {
-    display: flex;
-    justify-content: center;
-}
-
-.main-teams__wrapper {
-    width: 960px;
-    padding: 0 60px;
-}

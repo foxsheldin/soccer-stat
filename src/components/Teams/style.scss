@@ -1,0 +1,57 @@
+@import '../common/css/global.scss';
+
+.teams-list {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px 20px;
+
+
+    @media (min-width: $tablet-width) {
+        padding: 10px 30px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    & a {
+        text-decoration: none;
+        color: black;
+    }
+
+    & a:hover,
+    & a:focus {
+        background-color: lightgray;
+    }
+}
+
+.teams-list__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 2%;
+    box-shadow: 4px 4px 10px rgba(#000000, 0.6);
+    width: auto;
+    height: 75px;
+
+    @media (min-width: $tablet-width) {
+        height: 125px;
+    }
+
+    @media (min-width: $desktop-width) {
+        height: 175px;
+    }
+}
+
+.teams__logo img {
+    max-width: 40px;
+    height: auto;
+
+    @media (min-width: $tablet-width) {
+        max-width: 75px;
+    }
+
+    @media (min-width: $desktop-width) {
+        max-width: 110px;
+    }
+}
