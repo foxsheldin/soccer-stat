@@ -6,7 +6,7 @@ import './style.scss';
 const CompetitionsItem = (props) => {
   const addCodeLink = props.code??props.id;
 
-  return <Link to={`/competitions/${addCodeLink}`}>
+  return <Link to={`/competition/${addCodeLink}`}>
     <div className='competitions-list__item'>
       <div className='competitions__name'>{props.name}</div>
       <div className='competitions__country'>

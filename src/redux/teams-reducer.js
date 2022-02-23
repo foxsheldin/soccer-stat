@@ -1,5 +1,4 @@
 import { footballDataAPI } from "../api/api";
-import {availableCompetitions} from "../api/avalibaleCometitions";
 
 const SET_TEAMS = 'teams/SET_TEAMS';
 const SET_ONE_TEAM = 'teams/SET_ONE_TEAM';

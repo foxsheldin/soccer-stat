@@ -2,13 +2,15 @@ import React from "react";
 
 const MathcesItem = (props) => {
     let date = new Date(props.utcDate);
-    let awayTeamScore = null, awayTeamPenalty = null, homeTeamScore = null, homeTeamPenalty = null;
+    let awayTeamScore = null, awayTeamExtraScore = null, awayTeamPenalty = null;
+    let homeTeamScore = null, homeTeamExtraScore = null, homeTeamPenalty = null;
     let matchStatus = props.status;
 
     if (props.score.extraTime.homeTeam !== null && props.score.extraTime.awayTeam !== null) {
-        awayTeamScore = props.score.extraTime.awayTeam;
-        homeTeamScore = props.score.extraTime.homeTeam;
-    } else if (props.score.fullTime.homeTeam !== null && props.score.fullTime.awayTeam !== null) {
+        awayTeamExtraScore = props.score.extraTime.awayTeam;
+        homeTeamExtraScore = props.score.extraTime.homeTeam;
+    } 
+    if (props.score.fullTime.homeTeam !== null && props.score.fullTime.awayTeam !== null) {
         awayTeamScore = props.score.fullTime.awayTeam;
         homeTeamScore = props.score.fullTime.homeTeam;
     } else if (props.score.halfTime.homeTeam !== null && props.score.halfTime.awayTeam !== null) {
@@ -22,33 +24,43 @@ const MathcesItem = (props) => {
     }
 
     switch (matchStatus) {
+        case 'LIVE':
+            matchStatus = 'В прямом эфире';
+            break;
         case 'IN_PLAY':
             matchStatus = 'В игре';
+            break;
+        case 'PAUSED':
+            matchStatus = "Пауза";
             break;
         case 'FINISHED':
             matchStatus = "Завершен";
             break;
         case 'SCHEDULED':
-            matchStatus = "Планируется";
+            matchStatus = "Запланирован";
             break;
         case 'POSTPONED':
             matchStatus = "Отложен";
+            break;
+        case 'CANCELED':
+            matchStatus = "Отменен";
             break;
 
         default:
             matchStatus = "N/A status: "+props.status;
     }
-    debugger
+
     return (
         <tr>
             <td> {date.toLocaleDateString()}</td>
-            <td> {date.toLocaleTimeString()}</td>
+            <td> {date.toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</td>
             <td>{matchStatus}</td>
             <td>{props.homeTeam.name}</td>
             <td>-</td>
             <td>{props.awayTeam.name}</td>
             <td>{(homeTeamScore!==null && awayTeamScore!==null) ?
                 <>{homeTeamScore} : {awayTeamScore} 
+                    {(homeTeamExtraScore!==null && awayTeamExtraScore!==null) ?<> ({homeTeamExtraScore} : {awayTeamExtraScore}) </> : null}
                     {(homeTeamPenalty!==null && awayTeamPenalty!==null) ?<> ({homeTeamPenalty} : {awayTeamPenalty}) </> : null}</>
                 : null}
                 </td>
