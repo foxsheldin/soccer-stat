@@ -1,12 +1,13 @@
 import React from 'react'
 import MathcesItem from './MatchesItem'
+import './style.scss'
 
 const matchesElements = (matches) => {
     return matches.map((each) => <MathcesItem {...each} />)
 }
 
 const TableForMatches = (props) => {
-    return <table>
+    return <table className='calendar-list-table'>
     <thead>
         <tr>
             <th>Дата игры</th>

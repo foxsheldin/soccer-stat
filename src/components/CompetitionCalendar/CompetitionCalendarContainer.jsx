@@ -12,11 +12,12 @@ const CompetitionCalendarContainer = (props) => {
     props.getMatches(competitionCode);
   },[]);
 
-  return <CompetitionCalendar matches={props.matches} countMatches={props.countMatches} />;
+  return <CompetitionCalendar nameCompetition={props.nameCompetition} matches={props.matches} countMatches={props.countMatches} />;
 };
 
 const mapStateToProps = (state) => {
   return {
+    nameCompetition: state.competitionsState.name,
     matches: state.competitionsState.matches,
     countMatches: state.competitionsState.countMatches,
   }

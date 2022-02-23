@@ -1,0 +1,39 @@
+@import '../css/global.scss';
+
+/* Table */
+
+.calendar-list-table {
+    width: 100%;
+    margin: 10px 0;
+    box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: 0.4);
+    border-collapse: collapse;
+    font-size: 12px;
+
+    & th {
+        border: 2px solid black;
+    }
+
+    & tr {
+        text-align: center;        
+    }
+
+    & td.command_A{
+        float: left;
+    }
+    & td.command_dash{
+        float: center;
+    }
+    & td.command_B{
+        float: right;
+    }
+    
+    & tr:hover td,
+    & tr:focus td{
+        background-color: burlywood;       
+    }
+
+
+    @media (min-width: $tablet-width) {
+        font-size: 16px;
+    }
+}

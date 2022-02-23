@@ -5,6 +5,7 @@ const SET_COMPETITIONS = 'competitions/SET_COMPETITIONS';
 const SET_MATCHES = 'competitions/SET_MATCHES';
 
 const initialState = {
+    name: null,
     competitions: [],
     matches: [],
     countCompetitions: null,
@@ -16,7 +17,7 @@ const competitionsReducer = (state = initialState, action) => {
         case SET_COMPETITIONS:
             return {...state, competitions: action.competitions, countCompetitions: action.count};
         case SET_MATCHES:
-            return {...state, matches: action.matches, countMatches: action.count};
+            return {...state, name: action.name, matches: action.matches, countMatches: action.count};
 
         default:
             return state;
@@ -24,7 +25,7 @@ const competitionsReducer = (state = initialState, action) => {
 }
 
 const setCompetitions = (competitions, count) => ({type: SET_COMPETITIONS, competitions, count})
-const setMatches = (matches, count) => ({type: SET_MATCHES, matches, count})
+const setMatches = (name, matches, count) => ({type: SET_MATCHES, name, matches, count})
 
 export const getCompetitions = () => {
     return async (dispatch) => {
@@ -42,7 +43,7 @@ export const getMatches = (competitionCode) => {
     return async (dispatch) => {
         dispatch(setMatches([], null))
         const response = await footballDataAPI.getMatches(competitionCode);
-        dispatch(setMatches(response.data.matches, response.data.count))
+        dispatch(setMatches(response.data.competition.name, response.data.matches, response.data.count))
     }
 }
 
