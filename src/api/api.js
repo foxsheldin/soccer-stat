@@ -2,7 +2,7 @@ import axios from "axios";
 import {authToken} from "./authToken";
 
 const instance = axios.create({
-    baseURL: 'http://api.football-data.org/v2/',
+    baseURL: 'https://api.football-data.org/v2/',
     headers: {
         'X-Auth-Token': authToken,
     },
