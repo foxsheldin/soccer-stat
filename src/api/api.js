@@ -13,9 +13,12 @@ export const footballDataAPI = {
         /* List all available competitions. */
         return instance.get(`competitions`)??{response: {status: 504, message: "Gateway Timeout"}};
     },
-    getMatches(competitionCode) {
+    getMatches(competitionCode, dateFrom=null, dateTo=null) {
         /* List one particular competition. */
-        return instance.get(`competitions/${competitionCode}/matches`);
+        if (dateFrom && dateTo)
+            return instance.get(`competitions/${competitionCode}/matches?dateFrom=${dateFrom}&dateTo=${dateTo}`);
+        else
+            return instance.get(`competitions/${competitionCode}/matches`);
     },
     getTeams(competitionCode) {
         /* List all teams for a particular competition. */
@@ -28,8 +31,11 @@ export const footballDataAPI = {
         /* Show one particular team. */
         return instance.get(`teams/${teamid}`);
     },
-    getTeamMatches(teamid) {
+    getTeamMatches(teamid, dateFrom=null, dateTo=null) {
         /* Show all matches for a particular team. */
-        return instance.get(`teams/${teamid}/matches`);
+        if (dateFrom && dateTo)
+            return instance.get(`teams/${teamid}/matches?dateFrom=${dateFrom}&dateTo=${dateTo}`);
+        else
+            return instance.get(`teams/${teamid}/matches`);
     }
 }

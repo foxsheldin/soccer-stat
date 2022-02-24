@@ -13,8 +13,8 @@ const TeamCalendarContainer = (props) => {
     props.getTeamMatches(teamid);
   }, [])
 
-  return <TeamCalendar team={props.team} matches={props.matches}
-                       countMatches={props.countMatches}/>;
+  return <TeamCalendar teamid={teamid} team={props.team} matches={props.matches}
+                       countMatches={props.countMatches} updateMatches={props.getTeamMatches}/>;
 };
 
 const mapStateToProps = (state) => {

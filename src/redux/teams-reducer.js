@@ -43,16 +43,14 @@ export const getOneTeam = (teamid) => {
     return async (dispatch) => {
         dispatch(setOneTeam({}))
         const response = await footballDataAPI.getOneTeam(teamid);
-        debugger
         dispatch(setOneTeam(response.data))
     }
 }
 
-export const getTeamMatches = (teamid) => {
+export const getTeamMatches = (teamid, dateFrom = null, dateTo = null) => {
     return async (dispatch) => {
         dispatch(setMatches([], null))
-        const response = await footballDataAPI.getTeamMatches(teamid);
-        debugger
+        const response = await footballDataAPI.getTeamMatches(teamid, dateFrom, dateTo);
         dispatch(setMatches(response.data.matches, response.data.count))
     }
 }

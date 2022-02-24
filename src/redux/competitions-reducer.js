@@ -39,10 +39,10 @@ export const getCompetitions = () => {
     }
 }
 
-export const getMatches = (competitionCode) => {
+export const getMatches = (competitionCode, dateFrom = null, dateTo = null) => {
     return async (dispatch) => {
         dispatch(setMatches([], null))
-        const response = await footballDataAPI.getMatches(competitionCode);
+        const response = await footballDataAPI.getMatches(competitionCode, dateFrom, dateTo);
         dispatch(setMatches(response.data.competition.name, response.data.matches, response.data.count))
     }
 }
