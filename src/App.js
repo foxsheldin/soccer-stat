@@ -11,10 +11,11 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path='/' element={<PageLayout />} >
-          <Route path='/competitions' element={<CompetitionsContainer />} />
-          <Route path='/teams' element={<TeamsContainer />} />
-          <Route path='/teams/:teamid' element={<TeamCalendarContainer />} />
-          <Route path='/competitions/:competitionCode' element={<CompetitionCalendarContainer />} />
+          <Route path='/competitions/:page' element={<CompetitionsContainer />} />
+          <Route path='/teams/:page' element={<TeamsContainer />} />
+          <Route path='/team/:teamid' element={<TeamCalendarContainer />} />
+          <Route path='/competition/:competitionCode' element={<CompetitionCalendarContainer />} />
+          <Route path='*' element={'ERROR 404 "Страница не найдена"'} />
         </Route>
       </Routes>
     </div>
