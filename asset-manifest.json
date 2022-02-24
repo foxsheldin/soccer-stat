@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/soccer-stat/static/css/main.6453909f.css",
-    "main.js": "/soccer-stat/static/js/main.8a3c414e.js",
+    "main.js": "/soccer-stat/static/js/main.880f0e31.js",
     "index.html": "/soccer-stat/index.html",
     "static/media/Eclipse-1s-200px.svg": "/soccer-stat/static/media/Eclipse-1s-200px.47872d4c985b9176eac24d16860c3a0c.svg",
     "main.6453909f.css.map": "/soccer-stat/static/css/main.6453909f.css.map",
-    "main.8a3c414e.js.map": "/soccer-stat/static/js/main.8a3c414e.js.map"
+    "main.880f0e31.js.map": "/soccer-stat/static/js/main.880f0e31.js.map"
   },
   "entrypoints": [
     "static/css/main.6453909f.css",
-    "static/js/main.8a3c414e.js"
+    "static/js/main.880f0e31.js"
   ]
 }
