@@ -27,7 +27,7 @@ const Teams = (props) => {
   <div className='main-wrapper'>
     <h1 className='visually-hidden'>Лиги</h1>
     <div className='search'>
-      <input type='search' placeholder='Поиск команды' onChange={props.onSearchChange}/>
+      <input type='search' className='search__input' placeholder='Поиск команды' onChange={props.onSearchChange}/>
     </div>
     {props.count !== null ? 
       <div className='teams-list'>

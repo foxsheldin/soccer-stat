@@ -28,6 +28,9 @@ const Competitions = (props) => {
   return <main className='main-competitions'>
     <div className='main-wrapper'>
       <h1 className='visually-hidden'>Лиги</h1>
+      <div className='search'>
+        <input type='search' className='search__input' placeholder='Поиск лиги' onChange={props.onSearchChange} />
+      </div>
       {props.count !== null ? 
         <div className='competitions-list'>
           {competitionsElements(props.competitions)}
