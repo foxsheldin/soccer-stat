@@ -5,6 +5,8 @@
     margin: 0;
     padding: 10px 0;
 
+    /* Search */
+    
     & .search {
         padding: 0 20px;
 
@@ -31,6 +33,64 @@
 
     @media (min-width: $desktop-width) {
         width: $desktop-width;
+    }
+}
+
+
+/* Pagination */
+
+.pagination-list {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    margin: 15px auto;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    outline: none;
+
+    &>.active>a {
+        background-color: black;
+        border-color: black;
+        color: #fff;
+    }
+
+    &>li>a {
+        border: 1px solid black;
+        padding: 2px 5px;
+        margin: 0;
+        outline: none;
+        cursor: pointer;
+
+        @media (min-width: $tablet-width) {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+    }
+
+    &>.active>a,
+    &>.active>span,
+    &>.active>a:hover,
+    &>.active>span:hover,
+    &>.active>a:focus,
+    &>.active>span:focus {
+        background-color: black;
+        border-color: black;
+        outline: none;
+    }
+
+    &>li>a,
+    &>li>span {
+        color: black;
+    }
+
+    &>li:first-child>a,
+    &>li:first-child>span,
+    &>li:last-child>a,
+    &>li:last-child>span {
+        border-radius: unset
     }
 }
 
