@@ -5,19 +5,43 @@ import { getCompetitions } from '../../redux/competitions-reducer';
 import { useParams } from 'react-router-dom';
 
 const CompetitionsContainer = React.memo((props) => {
-  const {page} = useParams();
   const [competitions, setCompetitions] = useState(null);
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(9);
+  const [pageCount, setPageCount] = useState(0);
+
+  const getData = () => {
+    setCompetitions(props.competitions.slice(offset * perPage, (offset + 1) * perPage));
+    setPageCount(Math.ceil(props.competitions.length / perPage));
+  }
 
   useEffect(() => {
     props.getCompetitions();
   }, []);
 
-  const onSearchChange = (event) => {
-    const regExpValue = new RegExp(`${event.target.value}`,'i');
-    setCompetitions(props.competitions.filter((competition) => competition.name.match(regExpValue)));
+  useEffect(() => {
+    getData();
+  }, [offset]);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setOffset(selectedPage);
   }
 
-  return <Competitions competitions={competitions ?? props.competitions} count={props.count} onSearchChange={onSearchChange}/>;
+  const onSearchChange = (event) => {
+    if (event.target.value) {
+      const regExpValue = new RegExp(`${event.target.value}`, 'i');
+      setCompetitions(props.competitions.filter((competition) => competition.name.match(regExpValue)).slice(0, perPage));
+    } else {
+      getData();
+    }
+  }
+
+  return <Competitions competitions={competitions ?? props.competitions} count={props.count}
+    onSearchChange={onSearchChange}
+    handlePageClick={handlePageClick}
+    pageCount={pageCount}
+  />;
 });
 
 const mapStateToProps = (state) => {

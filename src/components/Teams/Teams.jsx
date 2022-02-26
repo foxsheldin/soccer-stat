@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 import PreLoader from '../common/PreLoader/PreLoader';
 import './style.scss';
@@ -24,18 +25,35 @@ const teamsElements = (teams) => {
 
 const Teams = (props) => {
   return <main className='main-teams'>
-  <div className='main-wrapper'>
-    <h1 className='visually-hidden'>Лиги</h1>
-    <div className='search'>
-      <input type='search' className='search__input' placeholder='Поиск команды' onChange={props.onSearchChange}/>
-    </div>
-    {props.count !== null ? 
-      <div className='teams-list'>
-        {teamsElements(props.teams)}
+    <div className='main-wrapper'>
+      <h1 className='visually-hidden'>Лиги</h1>
+      <div className='search'>
+        <input type='search' className='search__input' placeholder='Поиск команды' onChange={props.onSearchChange} />
       </div>
-    : <PreLoader />}
-  </div>
-</main>;
+      {props.count !== null ?
+        <>
+          <div className='teams-list'>
+            {teamsElements(props.teams)}
+          </div>
+          <div className='pagination-list'>
+            <ReactPaginate 
+                    previousLabel={"<-"}
+                    nextLabel={"->"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={props.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={props.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}
+            />
+          </div>
+        </>
+      : <PreLoader />}
+    </div>
+  </main>;
 };
 
 export default Teams;
