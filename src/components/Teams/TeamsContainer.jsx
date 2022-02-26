@@ -19,6 +19,11 @@ const TeamsContainer = (props) => {
   }, []);
 
   useEffect(() => {
+    if (props.teams !== null)
+      getData();
+  }, [props.teams]);
+
+  useEffect(() => {
     getData();
   }, [offset]);
 
