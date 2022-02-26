@@ -19,6 +19,11 @@ const CompetitionsContainer = React.memo((props) => {
   }, []);
 
   useEffect(() => {
+    if (props.competitions !== null)
+      getData();
+  }, [props.competitions]);
+
+  useEffect(() => {
     getData();
   }, [offset]);
 
@@ -36,7 +41,7 @@ const CompetitionsContainer = React.memo((props) => {
     }
   }
 
-  return <Competitions competitions={competitions ?? props.competitions} count={props.count}
+  return <Competitions competitions={competitions} count={props.count}
     onSearchChange={onSearchChange}
     handlePageClick={handlePageClick}
     pageCount={pageCount}
