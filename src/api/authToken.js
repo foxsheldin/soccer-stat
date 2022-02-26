@@ -1,0 +1,1 @@
+export const authToken = '3b3128c204e541d2bd8724e72d243433';
