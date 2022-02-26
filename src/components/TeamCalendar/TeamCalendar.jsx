@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Calendar from '../common/Calendar/Calendar';
+import CalendarContainer from '../common/Calendar/CalendarContainer';
 
 const TeamCalendar = (props) => {
   return <main className='main-team-calendar'>
@@ -9,7 +9,7 @@ const TeamCalendar = (props) => {
         <Link to={'/teams'}>Команды</Link>
         <span> > {props.team.name}</span>
       </div>
-      <Calendar {...props} />
+      <CalendarContainer {...props} />
     </div>
   </main>;
 };
