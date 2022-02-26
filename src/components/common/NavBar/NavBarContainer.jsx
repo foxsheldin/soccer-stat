@@ -6,15 +6,12 @@ const NavBarContainer = React.memo(() => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        if (location.pathname === '/' || location.pathname === '/competitions' || location.pathname === '/competitions/') {
-            navigate("/competitions/1");
+    useEffect(() => {
+        if (location.pathname === '/') {
+            navigate("/competitions");
         }
-        if (location.pathname==='/teams' || location.pathname==='/teams/') {
-            navigate('/teams/1');
-          }
     }, [location.pathname]);
-    
+
     return <NavBar />;
 });
 

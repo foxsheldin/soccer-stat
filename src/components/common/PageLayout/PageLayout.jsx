@@ -4,8 +4,8 @@ import NavBarContainer from '../NavBar/NavBarContainer';
 
 const PageLayout = (props) => {
   return <div>
-      <NavBarContainer />
-      <Outlet />
+    <NavBarContainer />
+    <Outlet />
   </div>;
 };
 

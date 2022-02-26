@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Competitions from './Competitions';
 import { getCompetitions } from '../../redux/competitions-reducer';
-import { useParams } from 'react-router-dom';
 
 const CompetitionsContainer = React.memo((props) => {
   const [competitions, setCompetitions] = useState(null);

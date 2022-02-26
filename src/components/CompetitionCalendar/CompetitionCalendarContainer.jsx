@@ -7,14 +7,14 @@ import CompetitionCalendar from './CompetitionCalendar';
 
 
 const CompetitionCalendarContainer = (props) => {
-  const {competitionCode} = useParams();
+  const { competitionCode } = useParams();
   useEffect(() => {
     props.getMatches(competitionCode);
-  },[]);
+  }, []);
 
-  return <CompetitionCalendar nameCompetition={props.nameCompetition} matches={props.matches} 
-                              competitionCode={competitionCode}
-                              countMatches={props.countMatches} updateMatches={props.getMatches}/>;
+  return <CompetitionCalendar nameCompetition={props.nameCompetition} matches={props.matches}
+    competitionCode={competitionCode}
+    countMatches={props.countMatches} updateMatches={props.getMatches} />;
 };
 
 const mapStateToProps = (state) => {

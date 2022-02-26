@@ -5,7 +5,7 @@ import PreLoader from '../common/PreLoader/PreLoader';
 import './style.scss';
 
 const TeamsItem = (props) => {
-  const addCodeLink = props.code??props.id;
+  const addCodeLink = props.code ?? props.id;
 
   return <Link to={`/team/${addCodeLink}`}>
     <div className='teams-list__item'>
@@ -13,7 +13,7 @@ const TeamsItem = (props) => {
       <div className='teams__logo'>
         {props.area.crestUrl || props.crestUrl ?
           <img src={props.area.crestUrl ?? props.crestUrl} width='150' height='150' />
-        : null}
+          : null}
       </div>
     </div>
   </Link>
@@ -36,22 +36,22 @@ const Teams = (props) => {
             {teamsElements(props.teams)}
           </div>
           <div className='pagination-list'>
-            <ReactPaginate 
-                    previousLabel={"<-"}
-                    nextLabel={"->"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={props.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={props.handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}
+            <ReactPaginate
+              previousLabel={"<-"}
+              nextLabel={"->"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={props.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={props.handlePageClick}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
             />
           </div>
         </>
-      : <PreLoader />}
+        : <PreLoader />}
     </div>
   </main>;
 };

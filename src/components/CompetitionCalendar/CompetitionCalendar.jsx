@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss';
 import { Link } from 'react-router-dom';
 import Calendar from '../common/Calendar/Calendar';
 
@@ -10,7 +9,7 @@ const CompetitionCalendar = (props) => {
                 <Link to={'/competitions'}>Лиги</Link>
                 <span> > {props.nameCompetition}</span>
             </div>
-            <Calendar {...props}/>
+            <Calendar {...props} />
         </div>
     </main>;
 };

@@ -5,14 +5,16 @@ import CompetitionsContainer from './components/Competitions/CompetitionsContain
 import TeamCalendarContainer from './components/TeamCalendar/TeamCalendarContainer';
 import CompetitionCalendarContainer from './components/CompetitionCalendar/CompetitionCalendarContainer';
 import TeamsContainer from './components/Teams/TeamsContainer';
+import './components/common/css/global.scss';
+import './components/common/css/variables.scss';
 
 const App = () => {
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<PageLayout />} >
-          <Route path='/competitions/:page' element={<CompetitionsContainer />} />
-          <Route path='/teams/:page' element={<TeamsContainer />} />
+          <Route path='/competitions' element={<CompetitionsContainer />} />
+          <Route path='/teams' element={<TeamsContainer />} />
           <Route path='/team/:teamid' element={<TeamCalendarContainer />} />
           <Route path='/competition/:competitionCode' element={<CompetitionCalendarContainer />} />
           <Route path='*' element={'ERROR 404 "Страница не найдена"'} />

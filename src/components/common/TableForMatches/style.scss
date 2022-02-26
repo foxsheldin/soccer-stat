@@ -1,4 +1,4 @@
-@import '../css/global.scss';
+@import '../css/variables.scss';
 
 /* Table */
 
@@ -14,22 +14,24 @@
     }
 
     & tr {
-        text-align: center;        
+        text-align: center;
     }
 
-    & td.command_A{
+    & td.command_A {
         float: left;
     }
-    & td.command_dash{
+
+    & td.command_dash {
         float: center;
     }
-    & td.command_B{
+
+    & td.command_B {
         float: right;
     }
-    
+
     & tr:hover td,
-    & tr:focus td{
-        background-color: burlywood;       
+    & tr:focus td {
+        background-color: burlywood;
     }
 
 

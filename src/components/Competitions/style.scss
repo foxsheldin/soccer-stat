@@ -1,11 +1,11 @@
-@import '../common/css/global.scss';
+@import '../common/css/variables.scss';
 
 .competitions-list {
     display: grid;
     grid-template-columns: auto;
     padding: 10px 20px;
 
-    
+
     @media (min-width: $tablet-width) {
         padding: 10px 30px;
         grid-template-columns: 1fr 1fr 1fr;
@@ -14,7 +14,7 @@
 
     & a {
         text-decoration: none;
-        color: black;  
+        color: black;
     }
 
     & a:hover,
@@ -30,18 +30,18 @@
     align-items: center;
     border: 2px solid black;
     border-radius: 2%;
-    box-shadow: 4px 4px 10px rgba(#000000,0.6);
+    box-shadow: 4px 4px 10px rgba(#000000, 0.6);
     width: auto;
     height: 75px;
-    
+
     @media (min-width: $tablet-width) {
         height: 125px;
-        
+
     }
-    
+
     @media (min-width: $desktop-width) {
         height: 175px;
-        
+
         & .competitions__name {
             font-size: 20px;
         }

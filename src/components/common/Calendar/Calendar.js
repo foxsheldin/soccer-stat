@@ -48,11 +48,11 @@ const Calendar = (props) => {
         <div className='calendar-list'>
             <h1>Матчи</h1>
             <div className='calendar-list-filter'>
-                c <input type='date' className='filter-date' 
-                    onChange={handleDateFromChange} onBlur={handleDateFromChange} 
+                c <input type='date' className='filter-date'
+                    onChange={handleDateFromChange} onBlur={handleDateFromChange}
                     value={dateFrom} max={dateTo} />
-                по <input type='date' className='filter-date' 
-                    onChange={handleDateToChange} onBlur={handleDateToChange} 
+                по <input type='date' className='filter-date'
+                    onChange={handleDateToChange} onBlur={handleDateToChange}
                     value={dateTo} min={dateFrom} />
             </div>
             {props.countMatches !== null ?

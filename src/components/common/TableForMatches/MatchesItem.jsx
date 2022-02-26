@@ -9,7 +9,7 @@ const MathcesItem = (props) => {
     if (props.score.extraTime.homeTeam !== null && props.score.extraTime.awayTeam !== null) {
         awayTeamExtraScore = props.score.extraTime.awayTeam;
         homeTeamExtraScore = props.score.extraTime.homeTeam;
-    } 
+    }
     if (props.score.fullTime.homeTeam !== null && props.score.fullTime.awayTeam !== null) {
         awayTeamScore = props.score.fullTime.awayTeam;
         homeTeamScore = props.score.fullTime.homeTeam;
@@ -47,23 +47,23 @@ const MathcesItem = (props) => {
             break;
 
         default:
-            matchStatus = "N/A status: "+props.status;
+            matchStatus = "N/A status: " + props.status;
     }
 
     return (
         <tr>
             <td> {date.toLocaleDateString()}</td>
-            <td> {date.toLocaleTimeString(navigator.language, { hour: '2-digit', minute:'2-digit' })}</td>
+            <td> {date.toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' })}</td>
             <td>{matchStatus}</td>
             <td>{props.homeTeam.name}</td>
             <td>-</td>
             <td>{props.awayTeam.name}</td>
-            <td>{(homeTeamScore!==null && awayTeamScore!==null) ?
-                <>{homeTeamScore} : {awayTeamScore} 
-                    {(homeTeamExtraScore!==null && awayTeamExtraScore!==null) ?<> ({homeTeamExtraScore} : {awayTeamExtraScore}) </> : null}
-                    {(homeTeamPenalty!==null && awayTeamPenalty!==null) ?<> ({homeTeamPenalty} : {awayTeamPenalty}) </> : null}</>
+            <td>{(homeTeamScore !== null && awayTeamScore !== null) ?
+                <>{homeTeamScore} : {awayTeamScore}
+                    {(homeTeamExtraScore !== null && awayTeamExtraScore !== null) ? <> ({homeTeamExtraScore} : {awayTeamExtraScore}) </> : null}
+                    {(homeTeamPenalty !== null && awayTeamPenalty !== null) ? <> ({homeTeamPenalty} : {awayTeamPenalty}) </> : null}</>
                 : null}
-                </td>
+            </td>
         </tr>
     );
 }
