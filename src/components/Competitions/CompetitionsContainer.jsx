@@ -4,7 +4,7 @@ import Competitions from './Competitions';
 import { getCompetitions } from '../../redux/competitions-reducer';
 
 const CompetitionsContainer = React.memo((props) => {
-  const [competitions, setCompetitions] = useState(null);
+  const [competitions, setCompetitions] = useState(props.competitions);
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(9);
   const [pageCount, setPageCount] = useState(0);

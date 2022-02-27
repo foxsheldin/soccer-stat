@@ -4,7 +4,7 @@ import Teams from './Teams';
 import { getTeams } from '../../redux/teams-reducer';
 
 const TeamsContainer = (props) => {
-  const [teams, setTeams] = useState(null);
+  const [teams, setTeams] = useState(props.teams);
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(9);
   const [pageCount, setPageCount] = useState(0);

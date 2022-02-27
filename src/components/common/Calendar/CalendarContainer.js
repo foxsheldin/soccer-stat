@@ -17,7 +17,11 @@ const CalendarContainer = (props) => {
 
     useEffect(() => {
         if (props.matches !== null)
+        {
+            setOffset(0);
+            setPageCount(0);
             getData();
+        }
     }, [props.matches])
 
     useEffect(() => {
@@ -42,9 +46,11 @@ const CalendarContainer = (props) => {
     const updateTable = () => {
         if (dateFrom && dateTo) {
             props.updateMatches(props.teamid ?? props.competitionCode, dateFrom, dateTo);
+            setPageCount(0);
         } 
         if (!dateFrom && !dateTo) {
             props.updateMatches(props.teamid ?? props.competitionCode);
+            setPageCount(0);
         }
     }
 
@@ -57,6 +63,7 @@ const CalendarContainer = (props) => {
             dateFrom={dateFrom}
             dateTo={dateTo}
             pageCount={pageCount}
+            offset={offset}
         />
     )
 }

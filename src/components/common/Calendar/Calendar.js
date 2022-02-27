@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate';
 import PreLoader from '../PreLoader/PreLoader'
-import TableForMatches from '../TableForMatches/TableForMatches'
+import TableForMatches from './TableForMatches/TableForMatches'
 
 const Calendar = (props) => {
     return (
@@ -21,11 +21,12 @@ const Calendar = (props) => {
                         <TableForMatches matches={props.matches} />
                         <div className='pagination-list'>
                             <ReactPaginate
-                                previousLabel={"<-"}
-                                nextLabel={"->"}
+                                previousLabel={"<"}
+                                nextLabel={">"}
                                 breakLabel={"..."}
                                 breakClassName={"break-me"}
                                 pageCount={props.pageCount}
+                                forcePage={props.offset}
                                 onPageChange={props.handlePageClick}
                                 containerClassName={"pagination"}
                                 subContainerClassName={"pages pagination"}
